@@ -2,7 +2,7 @@ import tensorflow as tf
 import TensorCode.backwards_MainCode as mctb
 import TensorCode.vectorized_MainCode as vmctb
 
-
+tf.print('running the backwards.py file')
 @tf.function
 def vectorized_Gradient_computation(m, rv, newton_solutions, tau):
 

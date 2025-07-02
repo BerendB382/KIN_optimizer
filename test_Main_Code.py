@@ -318,6 +318,6 @@ def test():
             negative_mass_penalty=100)
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    plotLossFunction()
+#     plotLossFunction()

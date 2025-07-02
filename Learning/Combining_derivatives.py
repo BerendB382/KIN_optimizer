@@ -1,5 +1,6 @@
 import tensorflow as tf
 
+tf.print('running the compute derivs file')
 
 def calculate_loss_derivatives(availabe_info_of_bodies, t, unknown_dimension, n):
 
