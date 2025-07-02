@@ -1,23 +1,39 @@
 import numpy as np 
 import matplotlib.pyplot as plt
+print('before imports')
+
 from amuse.units import units # type: ignore
-from pathlib import Path
-import sys
+import tensorflow as tf
+
 import os
+import numpy as np 
+from pathlib import Path
+import h5py
+import sys
+import argparse
+import json
+
+from create_test_system import generate_your_system # edit this function in the create_test_system.py file
+from Trappist.evolve_trappist import evolve_sys_sakura
+from Trappist.data_conversion import convert_states_to_celestial_bodies, convert_sys_to_initial_guess_list
+from test_Main_Code import init_optimizer
+import Learning.Training_loops as node
+from Validation.validation_funcs import select_masses, calculate_mass_error
+
 # This file tests the KIN for a given system. It should create a system according to the create_test_system file,
 # and take in the parameters in the job_params file. Maybe have a slurm mode? Or just allow one repetition?
 # Also point users to the validation file, and maybe streamline that. 
-
+print('top of the file')
 # This file should be called from test_KIN.sh
 arbeit_path = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(arbeit_path))
+print('before function definitions')
 
 def save_single_test_results(
         path, filename,
         finalmasses, true_masses, mass_error, avg_loss_per_epoch,
         params, mass_array
     ):
-    import h5py
     filepath = path / filename
     with h5py.File(filepath, 'a') as f:
         exp_index = len(f.keys())
@@ -64,15 +80,8 @@ def save_single_test_results(
 def test_KIN():
     '''Test the Keplerian Integration Network, with parameters set by the test_params.json file.
     The system to test is generated according to a chosen function in the create_test_system.py file.'''
-    import argparse
-    import json
-    from create_test_system import generate_your_system # edit this function in the create_test_system.py file
-    from Trappist.evolve_trappist import evolve_sys_sakura
-    from Trappist.data_conversion import convert_states_to_celestial_bodies, convert_sys_to_initial_guess_list
-    from test_Main_Code import init_optimizer
-    import Learning.Training_loops as node
-    from Validation.validation_funcs import select_masses, calculate_mass_error
     
+    print('parsing arguments...')
     # Parse command-line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("--param_file", type=str, required=True, help='Path to the parameter file (JSON)')
@@ -158,9 +167,10 @@ def test_KIN():
         params=params, mass_array=masses
     )
 
-
-
+print('starting test_KIN function')
 test_KIN()  
 
+import tensorflow as tf
+from amuse.community.sakura.interface import Sakura # type: ignore
 
     

@@ -6,7 +6,7 @@
 #SBATCH --mail-type="ALL"
 
 #SBATCH --partition="cpu-long"
-#SBATCH --time=4-00:00:00
+#SBATCH --time=5-00:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
@@ -19,6 +19,8 @@ echo "#### Starting test"
 cd ..
 
 conda activate nbody
+
+module load OpenMPI/5.0.3-GCC-13.3.0
 
 python Validation/validation.py --param_file Validation/params_job4.json
 python Validation/process_results.py --param_file Validation/params_job4.json --job_id $SLURM_JOB_ID  

@@ -1,0 +1,24 @@
+{
+    "M_maj": 0.001,
+    "M_min": 0.0001,
+    "a_maj": 10,
+    "a_min": 50,
+    "accuracy": 1e-15,
+    "epochs": 650,
+    "evolve_time": 600,
+    "hypercube_state": 42,
+    "init_guess_offset": [
+        1e-05,
+        1.0
+    ],
+    "learning_rate": 0.02,
+    "loglog": true,
+    "n_samples": 20,
+    "num_points_considered_in_cost_function": 4,
+    "phaseseed": 0,
+    "tau": 1,
+    "unknown_dimension": 3,
+    "varied_param_names": [
+        "init_guess_offset"
+    ]
+}

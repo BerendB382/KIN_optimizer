@@ -6,7 +6,7 @@
 #SBATCH --mail-type="ALL"
 
 #SBATCH --partition="cpu-long"
-#SBATCH --time=2-05:00:00
+#SBATCH --time=7-00:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16

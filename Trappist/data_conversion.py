@@ -1,8 +1,9 @@
 import numpy as np
 import os
 
-from amuse.units import units, constants, nbody_system
-from amuse.lab import Particles, Particle
+os.environ["AMUSE_CHANNELS"] = "local"
+from amuse.units import units, constants, nbody_system # type: ignore
+from amuse.lab import Particles, Particle # type: ignore
 
 def convert_sys_to_initial_guess_list(sys, initial_guesses):
     true_masses = sys.mass.value_in(units.Msun)
@@ -35,8 +36,8 @@ def select_points(pos, vel, num_points_requested):
             print(f"⚠️ Adjusted number of points from {num_points_requested} to {adjusted_num_points} "
                   f"to fit evenly into {N} timesteps (stride={stride})")
 
-    selected_indices = np.arange(0, stride * (adjusted_num_points - 1) + 1, stride)
-
+    selected_indices = np.arange(0, stride * (adjusted_num_points - 1) + 1, stride).astype(int)
+    print(selected_indices)
     new_pos = pos[selected_indices]
     new_vel = vel[selected_indices]
 

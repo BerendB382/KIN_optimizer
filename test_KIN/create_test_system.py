@@ -1,8 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+import os
 from pathlib import Path
 
+os.environ["AMUSE_CHANNELS"] = "local"
 from amuse.units import units, constants, nbody_system # type: ignore
 from amuse.lab import Particles, Particle # type: ignore
 

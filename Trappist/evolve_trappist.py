@@ -1,8 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
+os.environ["AMUSE_CHANNELS"] = "local"
 from amuse.units import units, constants, nbody_system # type: ignore
-from amuse.lab import Particles, Particle # type: ignore
 from amuse.community.sakura.interface import Sakura # type: ignore
 
 import pickle as pkl

@@ -5,11 +5,9 @@ import copy
 from pathlib import Path
 import os
 
+os.environ["OMPI_MCA_rmaps_base_oversubscribe"] = "true"
 from amuse.units import units, constants, nbody_system # type: ignore
 from amuse.lab import Particles, Particle # type: ignore
-
-
-os.environ["OMPI_MCA_rmaps_base_oversubscribe"] = "true"
 
 arbeit_path = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(arbeit_path))
@@ -406,15 +404,12 @@ def test_many_systems(
 
         # if the parameter to be changed is the number of cost function points, it must be an integer. 
         # fix that here
-        print(p_var_names)
+        
         if p_var_names[0] == 'num_points_considered_in_cost_function':
             param_sample[:, 0] = np.ceil(param_sample[:, 0]).astype(int)
         if p_var_names[1] == 'num_points_considered_in_cost_function':
-            print('yea')
-            param_sample[:, 1] = np.ceil(param_sample[:, 0]).astype(int)
-        
-        print(param_sample.shape)
-        print(param_sample)
+            param_sample[:, 1] = np.ceil(param_sample[:, 1]).astype(int)
+
         # prepare the arguments for the process_single_system_mp function
         args = []
         for i, param_values in enumerate(param_sample):

@@ -1,14 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
-import copy
 import os
 from pathlib import Path
 
-from amuse.units import units, constants, nbody_system # type: ignore
-from amuse.lab import Particles, Particle # type: ignore
-
+os.environ["AMUSE_CHANNELS"] = "local"
 os.environ["OMPI_MCA_rmaps_base_oversubscribe"] = "true"
+from amuse.units import units, constants # type: ignore
 
 arbeit_path = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(arbeit_path))
@@ -286,12 +284,12 @@ def sensitivity_plot_1param(results, filename, run_params, log_error=True, plot_
         ax.set_facecolor('xkcd:light grey')
         ax.set_xlabel(labels[p_index])
         ax.grid()
-        ax.set_title(f'Relative mass error for body {i}')
+        ax.set_title(f'Relative mass error for body {i+1}')
 
     axes[0].set_ylabel(mass_error_label)
 
     saved_file = plot_path / filename
-    fig.tight_layout()
+    # fig.tight_layout()
     fig.savefig(f'{saved_file}.png', dpi=800)
     plt.close(fig)
 
@@ -339,13 +337,13 @@ def sensitivity_plot_uncertainty(results, filename, run_params, log_error=True, 
         ax.set_facecolor('xkcd:light grey')
         ax.set_xlabel(labels[p_unc_index])
         ax.grid()
-        ax.set_title(f'Relative mass error for body {i}')
+        ax.set_title(f'Relative mass error for body {i+1}')
 
     axes[0].set_ylabel(labels[v_unc_index])
     fig.colorbar(pcm, ax=axes, label=mass_error_label, shrink=1, use_gridspec=True)
 
     saved_file = plot_path / filename
-    fig.tight_layout()
+    # fig.tight_layout()
     fig.savefig(f'{saved_file}.png', dpi=800)
     plt.close(fig)
 
@@ -353,7 +351,6 @@ def sensitivity_plot_uncertainty(results, filename, run_params, log_error=True, 
 def sensitivity_plot(results, filename, run_params, log_error=True, plot_path=plot_path, loglog=False):
     '''Creates a sensitivity plot for a given set of results.'''
     from scipy.interpolate import LinearNDInterpolator
-    from system_generation import relative_orbital_velocity
 
     varied_param_names = run_params['varied_param_names']
     evolve_time = run_params['evolve_time']
@@ -429,7 +426,7 @@ def sensitivity_plot(results, filename, run_params, log_error=True, plot_path=pl
         ax.set_facecolor('xkcd:light grey')
         ax.set_xlabel(labels[p1_index])
         ax.grid()
-        ax.set_title(f'Relative mass error for body {i}')
+        ax.set_title(f'Relative mass error for body {i+1}')
 
     axes[0].set_ylabel(labels[p2_index])
     fig.colorbar(pcm, ax=axes, label=cbarlabel, shrink=1, use_gridspec=True)

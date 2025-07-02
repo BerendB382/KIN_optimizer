@@ -1,0 +1,21 @@
+{
+    "M_min": 1e-5,
+    "a_min": 50,
+    "evolve_time": 600,
+    "tau": 1,
+    "num_points_considered_in_cost_function": 4,
+    "M_maj": 1e-3,
+    "a_maj": 10,
+    "epochs": 650,
+    "accuracy": 1e-15,
+    "n_samples": 100,
+    "init_guess_offset": 1e-5,
+    "learning_rate": 0.02,
+    "unknown_dimension": 3,
+    "phaseseed": 0,
+    "optimizer_type": "ADAM",
+    "hypercube_state": 42,
+    "loglog": true,
+    "p_unc": 0.001,
+    "v_unc": 0.00001
+}
