@@ -210,6 +210,8 @@ def learn_masses_4real(tau, optimizer, availabe_info_of_bodies, plot_queue, plot
                 # f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}, \nPositions: \n{r.numpy()}")
                 print(
                 f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}")
+                tf.print(
+                f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}")
                 
     mass_values = mass_values[:stop_epoch]
     loss_values = loss_values[:stop_epoch]

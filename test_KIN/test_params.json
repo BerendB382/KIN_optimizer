@@ -2,7 +2,7 @@
     "evolve_time": 300,
     "tau": 1,
     "num_points_considered_in_cost_function": 8,
-    "epochs": 1200,
+    "epochs": 10,
     "accuracy": 1e-10,
     "init_guess_central": 1,
     "init_guess_planet": 1e-5,
