@@ -7,7 +7,9 @@ import Learning.Backwards as b
 import queue
 import threading
 import numpy as np
+import traceback
 
+tf.print('running training loops file')
 
 def learn_masses(tau, optimizer, availabe_info_of_bodies,
                  epochs=1,
@@ -15,14 +17,17 @@ def learn_masses(tau, optimizer, availabe_info_of_bodies,
                  negative_mass_penalty=0,
                  accuracy=1e-15, plotGraph=True, zoombox=False, 
                  plot_in_2D=False,
-                 printing = False):
+                 printing=False):
     '''
     This function is just a sort of wrapper.
     If no graph is being plotted, then the main thread just runs the TensorFlow code
     But if plotGraph=True, then the main thread does the plotting and a new thread does TensorFlow stuff.
     (It doesn't work with matplotlib if not the main thread does GUI things)
     '''
-
+    stack_list = traceback.format_stack()
+    stack_str = "".join(stack_list)
+    tf.print('Learn_masses called! Stack trace:', stack_str)
+    
     if plotGraph:
         '''
         There are two options for the graphs.
@@ -88,7 +93,7 @@ def learn_masses_4real(tau, optimizer, availabe_info_of_bodies, plot_queue, plot
 
     # This is important as without it the gpu is used and I haven't tested it with the gpu.
     with tf.device('/CPU:0'):
-
+        tf.print('starting learn_masses_4real')
         # Here, the starting positions, velocities and initial guesses of the masses
         # are taken from availabe_info_of_bodies
         m = []
@@ -137,7 +142,6 @@ def learn_masses_4real(tau, optimizer, availabe_info_of_bodies, plot_queue, plot
         m_i_minus_1 = tf.zeros_like(m)
 
         for j in range(epochs):
-
             # If the difference between the last value for m and the current one
             # Falls below the threshold of accuracy, the loop is broken.
             if (tf.less_equal(tf.reduce_sum(tf.abs(m_i_minus_1 - m)), accuracy)):
@@ -209,6 +213,8 @@ def learn_masses_4real(tau, optimizer, availabe_info_of_bodies, plot_queue, plot
                 # print(
                 # f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}, \nPositions: \n{r.numpy()}")
                 print(
+                f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}")
+                tf.print(
                 f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}")
                 
     mass_values = mass_values[:stop_epoch]

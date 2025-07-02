@@ -1,5 +1,0 @@
-#### Starting test
-2025-07-01 19:18:03.707496: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-Graph building time: 0.21454358100891113
-#### Finished Test. Have a nice day
