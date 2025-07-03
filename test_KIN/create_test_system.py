@@ -77,14 +77,14 @@ def generate_your_system():
     sys_type = 'user_type'
     return sys, sys_type
 
-# def generate_your_system(): # SIMPLE 3 BODY VERSION
-#     M_maj = 1e-3
-#     M_min = 1e-5
-#     a_maj = 10
-#     a_min = 20
-#     phaseseed = 42
-#     sys_type = '3_bodies'
-#     return create_test_system(M_maj, M_min, a_maj, a_min, phaseseed), sys_type
+def generate_your_system(): # SIMPLE 3 BODY VERSION
+    M_maj = 1e-3
+    M_min = 1e-5
+    a_maj = 10
+    a_min = 20
+    phaseseed = 42
+    sys_type = '3_bodies'
+    return create_test_system(M_maj, M_min, a_maj, a_min, phaseseed), sys_type
 
 # def generate_your_system(): # MANY BODIES VERSION
 #     # TODO: where you have lots of bodies bla bla bla. 
@@ -105,11 +105,11 @@ def generate_your_system():
 #     sys_type = 's_stars'
 #     return create_s_star_system(filepath, s_star_mass, ref_time), sys_type
 
-def generate_your_system(): # SOLAR SYSTEM VERSION
-    from amuse.ext.solarsystem import new_solar_system #type: ignore
-    solarsys = new_solar_system()
-    sys_type = 'solarsystem'
-    return solarsys, sys_type
+# def generate_your_system(): # SOLAR SYSTEM VERSION
+#     from amuse.ext.solarsystem import new_solar_system #type: ignore
+#     solarsys = new_solar_system()
+#     sys_type = 'solarsystem'
+#     return solarsys, sys_type
 
 def plot_evolution_example():
     from Trappist.evolve_trappist import evolve_sys_sakura
