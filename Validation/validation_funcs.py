@@ -25,20 +25,19 @@ plt.rc('font', **font)
 
 def select_masses(masses, losses, lowest_loss = True):
     # select the masses from the epoch with the lowest loss value
-    losses = np.array(losses)
-    average_losses = np.sum(losses, axis = 2)
-    avg_loss_per_epoch = average_losses[:, -1]
-
-    good_mass_indices = np.array([np.all(np.array(mass_list) > 0) for mass_list in masses])
-    valid_indices = np.where(good_mass_indices)[0]
-
-    best_idx = valid_indices[np.argmin(avg_loss_per_epoch[valid_indices])]
+    avg_loss_per_epoch = losses
 
     if lowest_loss:
+        good_mass_indices = np.array([np.all(np.array(mass_list) > 0) for mass_list in masses])
+        valid_indices = np.where(good_mass_indices)[0]
+
+        best_idx = valid_indices[np.argmin(avg_loss_per_epoch[valid_indices])]
+
         masses = masses[best_idx]  
         return masses, best_idx, avg_loss_per_epoch
     else:
         masses = masses[-1]
+        best_idx = len(masses)-1
         return masses, best_idx, avg_loss_per_epoch
     
 def calculate_mass_error(new_masses, sys, relative = True, sumup = True):

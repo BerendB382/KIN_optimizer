@@ -1,4 +1,5 @@
 import numpy as np
+import tensorflow as tf
 import matplotlib.pyplot as plt
 import sys
 import copy
@@ -137,7 +138,8 @@ def find_masses_pv_unc(
 
     optimizer = init_optimizer(
         optimizer_type, num_bodies + num_bodies * 3 * 2, lr=learning_rate_arr)
-    print('start the learn masses function')
+    if printing:
+        print('start the learn masses function')
     masses, losses = node.learn_masses(
         tau=tau_opt.value_in(units.day), optimizer=optimizer,
         availabe_info_of_bodies=test_bodies,
@@ -163,7 +165,8 @@ def process_single_system_mp_pv_unc(
     from Validation.validation_funcs import select_masses, calculate_mass_error, save_results
     # First, generate a system according to the parameters
     test_sys = create_test_system(M_maj=M_maj, M_min=M_min, a_maj=a_maj, a_min=a_min, phaseseed=phaseseed)
-
+    
+    tf.print(f'finding masses for system {i}...')
     # Find the masses of the system
     masses, losses = find_masses_pv_unc(
         test_sys=test_sys,
@@ -181,6 +184,7 @@ def process_single_system_mp_pv_unc(
         printing=False
         )
     
+    tf.print(f'finished finding masses for system {i}')
     masses, best_idx, avg_loss_per_epoch = select_masses(masses, losses, lowest_loss=False)
     true_masses = test_sys.mass.value_in(units.Msun)
 
@@ -207,6 +211,7 @@ def process_single_system_mp(
     # First, generate a system according to the parameters
     test_sys = create_test_system(M_maj=M_maj, M_min=M_min, a_maj=a_maj, a_min=a_min, phaseseed=phaseseed)
 
+    tf.print(f'finding masses for system {i}')
     # Find the masses of the system
     masses, losses = find_masses(
         test_sys=test_sys,
@@ -231,7 +236,7 @@ def process_single_system_mp(
 
     save_results(results_path, f'{i}_of_{n_samples:03d}_systems.h5', masses, true_masses, mass_error, avg_loss_per_epoch, 
                  varied_param_names, varied_params)
-    print(f'saved results for system {i}')
+    tf.print(f'saved results for system {i}')
 
 def test_many_systems(
         M_min, a_min, evolve_time, tau, num_points_considered_in_cost_function,

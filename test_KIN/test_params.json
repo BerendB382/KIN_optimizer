@@ -1,12 +1,12 @@
 {
-    "evolve_time": 300,
-    "tau": 1,
+    "evolve_time": 150,
+    "tau": 0.1,
     "num_points_considered_in_cost_function": 8,
-    "epochs": 2400,
+    "epochs": 1200,
     "accuracy": 1e-10,
-    "init_guess_central": 0.1,
+    "init_guess_central": 1,
     "init_guess_planet": 1e-8,
-    "learning_rate": 0.0000002,
+    "learning_rate": 0.0002,
     "unknown_dimension": 3,
     "phaseseed": 0,
     "optimizer_type": "ADAM"

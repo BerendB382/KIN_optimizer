@@ -242,7 +242,7 @@ def plotLossFunction():
     plt.show()
 
 
-def init_optimizer(optimizer, n, lr):
+def init_optimizer(optimizer, n, lr, use_schedule=False):
     if optimizer == "BT":
         rc = BachelorThesisOptimizer(
             learning_rate=lr, shape=n, convergence_rate=1.0001)
@@ -253,7 +253,19 @@ def init_optimizer(optimizer, n, lr):
     #     rc = BachelorThesisOptimizerWithRelu(
     #         learning_rate=lr, shape=n, convergence_rate=1.0001)
     elif optimizer == "ADAM":
-        rc = keras.optimizers.Adam(learning_rate=lr)
+        if use_schedule:
+            decay_factor = 0.1  # Decrease by a factor of 10
+            decay_steps = 50    # Decrease every 50 epochs
+
+            lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
+                initial_learning_rate=lr,
+                decay_steps=decay_steps,
+                decay_rate=decay_factor,
+                staircase=True
+            )
+            rc = tf.keras.optimizers.Adam(learning_rate=lr_schedule)
+        else:
+            rc = tf.keras.optimizers.Adam(learning_rate=lr)
     elif optimizer == "SGDWS":
         decay_factor = 0.1  # Decrease by a factor of 10
         decay_steps = 50  # Decrease every 50 epochs
