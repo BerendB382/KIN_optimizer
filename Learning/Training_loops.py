@@ -24,9 +24,6 @@ def learn_masses(tau, optimizer, availabe_info_of_bodies,
     But if plotGraph=True, then the main thread does the plotting and a new thread does TensorFlow stuff.
     (It doesn't work with matplotlib if not the main thread does GUI things)
     '''
-    stack_list = traceback.format_stack()
-    stack_str = "".join(stack_list)
-    tf.print('Learn_masses called! Stack trace:', stack_str)
     
     if plotGraph:
         '''
@@ -206,14 +203,15 @@ def learn_masses_4real(tau, optimizer, availabe_info_of_bodies, plot_queue, plot
                 param[3*n + n:], shape=(n, 3)), dtype=tf.float64)
 
             mass_values[j] = [m.numpy()[i] for i in range(len(m.numpy()))]
-            loss_values[j] = [losses.numpy()[i,0,:] for i in range(len(losses.numpy()[:,0,:]))]
-            
+
+            # Sum over all loss components and timesteps
+            avg_loss = tf.reduce_sum(losses)
+            loss_values[j] = avg_loss.numpy()
+
             stop_epoch += 1
             if printing:
                 # print(
                 # f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}, \nPositions: \n{r.numpy()}")
-                print(
-                f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}")
                 tf.print(
                 f"Epoch {j+1}/{epochs}, Masses: {m.numpy()}")
                 
