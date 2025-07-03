@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.colors import Normalize
 import sys
 import os
 from pathlib import Path
@@ -272,9 +273,16 @@ def sensitivity_plot_1param(results, filename, run_params, log_error=True, plot_
     fig, axes = plt.subplots(1, 3, figsize=(20, 6.5), sharey=True, layout='compressed')
     plt.set_cmap('viridis')
 
+    vmin = np.min(mass_errors)
+    if log_error:
+        vmax = min(np.max(mass_errors), 5)
+    vmax = min(np.max(mass_errors), 1e5)
+
+    norm = Normalize(vmin=vmin, vmax=vmax)
+
     for i, ax in enumerate(axes):
         ax.scatter(p, mass_errors[:, i], s=150, color='white')
-        sc = ax.scatter(p, mass_errors[:, i], s=60, c=mass_errors[:, i])
+        sc = ax.scatter(p, mass_errors[:, i], s=60, c=mass_errors[:, i], norm=norm)
 
         if p_index == 0:
             ax.axvline(M_maj, linestyle='--', color='white', label='M_maj')
@@ -295,6 +303,8 @@ def sensitivity_plot_1param(results, filename, run_params, log_error=True, plot_
 
 def sensitivity_plot_uncertainty(results, filename, run_params, log_error=True, plot_path=plot_path, loglog=False):
     from scipy.interpolate import LinearNDInterpolator
+
+
     # Extract the parameters we need to visualize 
     mass_errors = results['mass_errors']
     avg_losses_per_epoch = results['avg_loss_per_epoch']
@@ -316,6 +326,13 @@ def sensitivity_plot_uncertainty(results, filename, run_params, log_error=True, 
         filename = f'log_{filename}'
         mass_error_label = 'Log (10) fractional mass error'
     
+    vmin = np.min(mass_errors)
+    if log_error:
+        vmax = min(np.max(mass_errors), 5)
+    vmax = min(np.max(mass_errors), 1e5)
+
+    norm = Normalize(vmin=vmin, vmax=vmax)
+
     # interpolate between the two parameters
     p_unc_space = np.linspace(np.min(p_unc), np.max(p_unc), 500)
     v_unc_space = np.linspace(np.min(v_unc), np.max(v_unc), 500)
@@ -326,21 +343,36 @@ def sensitivity_plot_uncertainty(results, filename, run_params, log_error=True, 
     fig, axes = plt.subplots(1, 3, figsize=(20, 6.5), sharex=True, sharey=True, layout='compressed')
     plt.set_cmap('viridis')
 
+    threshold = -2 if log_error else 1e-2
+
     for i, ax in enumerate(axes):
         interp = LinearNDInterpolator((p_unc, v_unc), mass_errors[:, i])
         mass_errors_i = interp(p1_grid, p2_grid)
 
-        pcm = ax.pcolormesh(p1_grid, p2_grid, mass_errors_i, shading='auto')
+        pcm = ax.pcolormesh(p1_grid, p2_grid, mass_errors_i, shading='auto', norm=norm)
         ax.scatter(p_unc, v_unc, s=150, color='white')
-        sc = ax.scatter(p_unc, v_unc, s=60, c=mass_errors[:, i])
-
+        sc = ax.scatter(p_unc, v_unc, s=60, c=mass_errors[:, i], norm=norm)
+        
+        try:
+            cs = ax.contour(
+                p1_grid, p2_grid, mass_errors_i,
+                levels=[threshold],
+                colors='black',
+                linewidths=1.2,
+            )
+            ax.clabel(cs, inline=True, fontsize=9,
+                      fmt=lambda x: "1e-2" if not log_error else "log10=–2")
+        except Exception as e:
+            print(f"Contour plotting failed for body {i+1}: {e}")
+        
+        fig.colorbar(pcm, ax=ax, label=mass_error_label, shrink=0.9, use_gridspec=True)
         ax.set_facecolor('xkcd:light grey')
         ax.set_xlabel(labels[p_unc_index])
         ax.grid()
         ax.set_title(f'Relative mass error for body {i+1}')
 
     axes[0].set_ylabel(labels[v_unc_index])
-    fig.colorbar(pcm, ax=axes, label=mass_error_label, shrink=1, use_gridspec=True)
+    
 
     saved_file = plot_path / filename
     # fig.tight_layout()
@@ -384,6 +416,7 @@ def sensitivity_plot(results, filename, run_params, log_error=True, plot_path=pl
     else:
         labels = param_labels
 
+    
     # interpolate between the two parameters
     p1_space = np.linspace(np.min(p1), np.max(p1), 500)
     p2_space = np.linspace(np.min(p2), np.max(p2), 500)
@@ -399,17 +432,38 @@ def sensitivity_plot(results, filename, run_params, log_error=True, plot_path=pl
         cbarlabel = 'Log (10) fractional mass error'
         filename = f'log_{filename}'
 
+    vmin = np.min(mass_errors)
+    if log_error:
+        vmax = min(np.max(mass_errors), 5)
+    vmax = min(np.max(mass_errors), 1e5)
+
+    norm = Normalize(vmin=vmin, vmax=vmax)
+
     fig, axes = plt.subplots(1, 3, figsize=(20, 6.5), sharex=True, sharey=True, layout='compressed')
     plt.set_cmap('viridis')
+
+    threshold = -2 if log_error else 1e-2
 
     for i, ax in enumerate(axes):
         interp = LinearNDInterpolator((p1, p2), mass_errors[:, i])
         mass_errors_i = interp(p1_grid, p2_grid)
 
-        pcm = ax.pcolormesh(p1_grid, p2_grid, mass_errors_i, shading='auto')
+        pcm = ax.pcolormesh(p1_grid, p2_grid, mass_errors_i, shading='auto', norm=norm)
         ax.scatter(p1, p2, s=150, color='white')
-        sc = ax.scatter(p1, p2, s=60, c=mass_errors[:, i])
+        sc = ax.scatter(p1, p2, s=60, c=mass_errors[:, i], norm=norm)
 
+        try:
+            cs = ax.contour(
+                p1_grid, p2_grid, mass_errors_i,
+                levels=[threshold],
+                colors='black',
+                linewidths=1.2,
+            )
+            ax.clabel(cs, inline=True, fontsize=9,
+                      fmt=lambda x: "1e-2" if not log_error else "log10=–2")
+        except Exception as e:
+            print(f"Contour plotting failed for body {i+1}: {e}")
+        
         if p1_index == 0 and p2_index != 5:
             ax.axvline(M_maj, linestyle='--', color='white', label='M_maj')
         if p2_index == 0 and p1_index != 5:
