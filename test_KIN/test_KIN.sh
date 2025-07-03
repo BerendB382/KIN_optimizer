@@ -4,9 +4,9 @@ echo "Starting KIN test..."
 
 cd ..
 
-conda deactivate
 conda activate nbody
 
-python3 test_KIN/test_KIN.py --param_file test_KIN/test_params.json --job_id testbert
+#python test_KIN/debug.py
+python test_KIN/test_KIN.py --param_file test_KIN/test_params.json --job_id test_hofvijver
 
 echo "Finished learning."
