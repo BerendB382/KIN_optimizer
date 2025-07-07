@@ -113,7 +113,7 @@ def test_KIN():
     initial_guess[0] = params['init_guess_central']
 
     if params['use_true_masses'] == 1:
-        initial_guess = evolved_sys.mass.value_in(units.Msun) * np.random.normal(1, 0.000001, size=len(evolved_sys))
+        initial_guess = evolved_sys.mass.value_in(units.Msun) * np.random.normal(1, 0.0000000001, size=len(evolved_sys))
     
     bodies_and_initial_guesses = convert_sys_to_initial_guess_list(evolved_sys, initial_guess)
     

@@ -77,25 +77,25 @@ def generate_your_system():
     sys_type = 'user_type'
     return sys, sys_type
 
-def generate_your_system(): # SIMPLE 3 BODY VERSION
-    M_maj = 1e-3
-    M_min = 1e-5
-    a_maj = 10
-    a_min = 20
-    phaseseed = 42
-    sys_type = '3_bodies'
-    return create_test_system(M_maj, M_min, a_maj, a_min, phaseseed), sys_type
+# def generate_your_system(): # SIMPLE 3 BODY VERSION
+#     M_maj = 1e-3
+#     M_min = 1e-5
+#     a_maj = 10
+#     a_min = 20
+#     phaseseed = 42
+#     sys_type = '3_bodies'
+#     return create_test_system(M_maj, M_min, a_maj, a_min, phaseseed), sys_type
 
 # def generate_your_system(): # MANY BODIES VERSION
 #     # TODO: where you have lots of bodies bla bla bla. 
 #     sys_type = 'many_bodies'
 #     return sys, sys_type
 
-# def generate_your_system(): # TRAPPIST VERSION
-#     from Trappist.generate_trappist import create_trappist_system
-#     phaseseed = 42
-#     sys_type = 'Trappist'
-#     return create_trappist_system(phaseseed), sys_type
+def generate_your_system(): # TRAPPIST VERSION
+    from Trappist.generate_trappist import create_trappist_system
+    phaseseed = 42
+    sys_type = 'Trappist'
+    return create_trappist_system(phaseseed), sys_type
 
 # def generate_your_system(): # S STAR VERSION
 #     from S_Stars.generate_s_stars import create_s_star_system
@@ -123,9 +123,10 @@ def plot_evolution_example():
     )
     plot_system(sys, pos_states, vel_states, save = True, filename = f'evolved_{sys_type}.png')
 
-plot_evolution_example()
+# plot_evolution_example()
 
-# generate_your_system()
+# sys, _ = generate_your_system()
+# print(sys)
 
 
 

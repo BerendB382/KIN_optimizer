@@ -1,15 +1,15 @@
 {
-    "evolve_time": 150,
-    "tau": 1,
+    "evolve_time": 10,
+    "tau": 0.1,
     "num_points_considered_in_cost_function": 1,
-    "epochs": 1200,
+    "epochs": 100,
     "accuracy": 1e-10,
     "init_guess_central": 1,
-    "init_guess_planet": 1e-8,
+    "init_guess_planet": 1e-5,
     "use_true_masses": 1,
-    "learning_rate": 0.02,
+    "learning_rate": 0.00000001,
     "negative_mass_penalty": 1,
     "unknown_dimension": 3,
     "phaseseed": 0,
-    "optimizer_type": "ADAM"
+    "optimizer_type": "BT"
 }

@@ -77,13 +77,14 @@ def create_trappist_system(phaseseed = 0):
 
     for i in range(len(dat)):
         sys.add_particle(create_trappist_planet(dat[i], phase = np.random.uniform(0, 2 * np.pi)))
+    sys.move_to_center()
     return sys
 
 def test_generation():
     from t_plotting import plot_system
     test_sys = create_trappist_system()
     plot_system(test_sys, [0], [0], dimension = 3)
-    print(test_sys.position.shape)
+    print(test_sys)
 
 # test_generation()
 
