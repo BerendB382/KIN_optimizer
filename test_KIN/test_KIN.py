@@ -112,6 +112,9 @@ def test_KIN():
     initial_guess = np.ones(num_bodies) * params['init_guess_planet'] # create array of initial guesses 
     initial_guess[0] = params['init_guess_central']
 
+    if params['use_true_masses'] == 1:
+        initial_guess = evolved_sys.mass.value_in(units.Msun) * np.random.normal(1, 0.000001, size=len(evolved_sys))
+    
     bodies_and_initial_guesses = convert_sys_to_initial_guess_list(evolved_sys, initial_guess)
     
     # create the CelestialBodies object
@@ -146,7 +149,7 @@ def test_KIN():
         plotGraph=False,
         plot_in_2D=True,
         zoombox='not yet', # can be: trappist, TODO add options
-        negative_mass_penalty=1,
+        negative_mass_penalty=params['negative_mass_penalty'],
         accuracy=params['accuracy'],
         printing=True
     )
