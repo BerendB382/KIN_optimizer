@@ -17,7 +17,7 @@ plot_path = arbeit_path / 'Plots'
 def find_masses(
         test_sys, evolve_time, tau_ev, tau_opt, num_points_considered_in_cost_function, 
         unknown_dimension=3, learning_rate=1e-5, init_guess_offset=1e-7, epochs=100, 
-        accuracy=1e-8, optimizer_type='ADAM', printing=True
+        accuracy=1e-8, negative_mass_penalty=1, optimizer_type='ADAM', printing=True
         ):
     '''Find the masses of a test system by evolving it for a certain time with a certain timestep, converting the states
     inbetween to a CelestialBodies object that the learn_masses function can use.'''
@@ -75,7 +75,7 @@ def find_masses(
         plotGraph=False,
         plot_in_2D=False,
         zoombox='not yet', # can be 'trappist' 
-        negative_mass_penalty=1,
+        negative_mass_penalty=negative_mass_penalty,
         accuracy=accuracy,
         printing=printing
     )
@@ -85,7 +85,7 @@ def find_masses(
 def find_masses_pv_unc(
         test_sys, evolve_time, tau_ev, tau_opt, num_points_considered_in_cost_function, 
         unknown_dimension=3, learning_rate=1e-5, init_guess_offset=1e-7, epochs=100, 
-        accuracy=1e-8, optimizer_type='Adam', pv_unc=None, printing=True
+        accuracy=1e-8, negative_mass_penalty=1, optimizer_type='Adam', pv_unc=None, printing=True
         ):
     '''Find the masses of a test system by evolving it for a certain time with a certain timestep, converting the states
     inbetween to a CelestialBodies object that the learn_masses function can use.'''
@@ -148,7 +148,7 @@ def find_masses_pv_unc(
         plotGraph=False,
         plot_in_2D=False,
         zoombox='not yet', # can be 'trappist' 
-        negative_mass_penalty=1,
+        negative_mass_penalty=negative_mass_penalty,
         accuracy=accuracy,
         printing=printing
     )
@@ -159,7 +159,7 @@ def process_single_system_mp_pv_unc(
         M_min, a_min, evolve_time, tau, num_points_considered_in_cost_function,
         M_maj, a_maj, epochs, accuracy, n_samples, init_guess_offset,
         learning_rate, unknown_dimension, phaseseed, results_path, i,
-        optimizer_type, varied_param_names, varied_params, pv_unc
+        optimizer_type, varied_param_names, varied_params, pv_unc, negative_mass_penalty
         ):
     from Validation.system_generation import create_test_system
     from Validation.validation_funcs import select_masses, calculate_mass_error, save_results
@@ -179,6 +179,7 @@ def process_single_system_mp_pv_unc(
         init_guess_offset=init_guess_offset,
         epochs=epochs,
         accuracy=accuracy,
+        negative_mass_penalty=negative_mass_penalty,
         optimizer_type=optimizer_type,
         pv_unc=pv_unc,
         printing=False
@@ -203,7 +204,7 @@ def process_single_system_mp(
         M_min, a_min, evolve_time, tau, num_points_considered_in_cost_function,
         M_maj, a_maj, epochs, accuracy, n_samples, init_guess_offset,
         learning_rate, unknown_dimension, phaseseed, results_path, i,
-        optimizer_type, varied_param_names, varied_params
+        optimizer_type, varied_param_names, varied_params, negative_mass_penalty
         ):
     from Validation.system_generation import create_test_system
     from Validation.validation_funcs import select_masses, calculate_mass_error, save_results
@@ -224,6 +225,7 @@ def process_single_system_mp(
         init_guess_offset=init_guess_offset,
         epochs=epochs,
         accuracy=accuracy,
+        negative_mass_penalty=negative_mass_penalty,
         optimizer_type=optimizer_type,
         printing=False
         )
@@ -242,7 +244,7 @@ def test_many_systems(
         M_min, a_min, evolve_time, tau, num_points_considered_in_cost_function,
         M_maj, a_maj, epochs, accuracy, n_samples, init_guess_offset,
         learning_rate, unknown_dimension, phaseseed, optimizer_type, hypercube_state,
-        loglog, p_unc = None, v_unc = None, job_id = None,
+        loglog, negative_mass_penalty, p_unc = None, v_unc = None, job_id = None,
         ):
     from Validation.validation_funcs import get_latin_sample, merge_h5_files, process_result
     from multiprocessing import Pool
@@ -264,13 +266,13 @@ def test_many_systems(
         'M_min', 'a_min', 'evolve_time', 'tau', 'num_points_considered_in_cost_function',
         'M_maj', 'a_maj', 'epochs', 'accuracy', 'n_samples', 'init_guess_offset',
         'learning_rate', 'unknown_dimension', 'phaseseed', 'hypercube_state',
-        'loglog'
+        'loglog', 'negative_mass_penalty'
         ]
     param_list = [
         M_min, a_min, evolve_time, tau, num_points_considered_in_cost_function,
         M_maj, a_maj, epochs, accuracy, n_samples, init_guess_offset,
         learning_rate, unknown_dimension, phaseseed, hypercube_state,
-        loglog
+        loglog, negative_mass_penalty
         ]
     
     # we don't allow the user to vary these, as they don't make sense to vary
@@ -324,7 +326,7 @@ def test_many_systems(
                 'M_min', 'a_min', 'evolve_time', 'tau', 'num_points_considered_in_cost_function',
                 'M_maj', 'a_maj', 'epochs', 'accuracy', 'n_samples', 'init_guess_offset',
                 'learning_rate', 'unknown_dimension', 'phaseseed', 'results_path', 'i',
-                'optimizer_type', 'varied_param_names', 'varied_params', 'pv_unc'
+                'optimizer_type', 'varied_param_names', 'varied_params', 'pv_unc', 'negative_mass_penalty'
             ]))
         
         # Now run the tests!
@@ -380,7 +382,7 @@ def test_many_systems(
                 'M_min', 'a_min', 'evolve_time', 'tau', 'num_points_considered_in_cost_function',
                 'M_maj', 'a_maj', 'epochs', 'accuracy', 'n_samples', 'init_guess_offset',
                 'learning_rate', 'unknown_dimension', 'phaseseed', 'results_path', 'i',
-                'optimizer_type', 'varied_param_names', 'varied_params'
+                'optimizer_type', 'varied_param_names', 'varied_params', 'negative_mass_penalty'
             ]))
         
         # now run the tests!
@@ -433,7 +435,7 @@ def test_many_systems(
                 'M_min', 'a_min', 'evolve_time', 'tau', 'num_points_considered_in_cost_function',
                 'M_maj', 'a_maj', 'epochs', 'accuracy', 'n_samples', 'init_guess_offset',
                 'learning_rate', 'unknown_dimension', 'phaseseed', 'results_path', 'i',
-                'optimizer_type', 'varied_param_names', 'varied_params'
+                'optimizer_type', 'varied_param_names', 'varied_params', 'negative_mass_penalty'
             ]))
 
         # now run the tests!

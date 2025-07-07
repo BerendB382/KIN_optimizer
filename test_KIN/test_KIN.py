@@ -143,7 +143,7 @@ def test_KIN():
         availabe_info_of_bodies=test_bodies,
         epochs=params['epochs'],
         unknown_dimension=params['unknown_dimension'],
-        plotGraph=False,
+        plotGraph=True,
         plot_in_2D=True,
         zoombox='not yet', # can be: trappist, TODO add options
         negative_mass_penalty=1,

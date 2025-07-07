@@ -31,16 +31,16 @@ def plot_system(sys, pos_states = [0], vel_states = [0], title = 'TRAPPIST-1 Sys
     if dimension == 2:
         ax = fig.add_subplot(111)
         for i in range(len(sys)):
-            plt.scatter(sys[i].y.value_in(units.AU), sys[i].z.value_in(units.AU), s = 100)
+            plt.scatter(sys[i].x.value_in(units.AU), sys[i].y.value_in(units.AU), s = 100)
             if len(pos_states) > 1:
-                    plt.plot(pos_states[:,i,1],
-                            pos_states[:,i,2],
+                    plt.plot(pos_states[:,i,0],
+                            pos_states[:,i,1],
                             alpha = 0.3, color = 'black')
             if len(vel_states) > 1:
-                plt.quiver(pos_states[-1][i][1], pos_states[-1][i][2],
-                           vel_states[-1][i][1], vel_states[-1][i][2])
-            ax.set_xlabel('Y (AU)')
-            ax.set_ylabel('Z (AU)')
+                plt.quiver(pos_states[-1][i][0], pos_states[-1][i][1],
+                           vel_states[-1][i][0], vel_states[-1][i][1])
+            ax.set_xlabel('X (AU)')
+            ax.set_ylabel('Y (AU)')
     if dimension == 3:
         ax = fig.add_subplot(111, projection = '3d')
         for i in range(len(sys)):

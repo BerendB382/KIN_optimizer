@@ -198,7 +198,7 @@ param_labels = [
     'Evolve time (days)', 'Tau (days)', 'Cost function points',
     'Major planet mass (Msun)', 'Major planet orbital period (days)', 
     'Initial guess offset (Msun)', 'Positional uncertainty (AU)',
-    'Velocity uncertainty (AU/day)'
+    'Velocity uncertainty (AU/day)', 'Negative mass penalty'
     ]
 # list of log axis labels
 log_param_labels = [
@@ -206,7 +206,7 @@ log_param_labels = [
     'Evolve time (log10(days))', 'Tau (log10(days))', 'Cost function points (log)',
     'Major planet mass (log10(Msun))', 'Major planet orbital period (log(days))', 
     'Initial guess offset (log10(Msun))', 'Positional uncertainty (log(AU))',
-    'Velocity uncertainty (log(AU/day))'
+    'Velocity uncertainty (log(AU/day))', 'Negative mass penalty (log)'
     ]
 # list of all the options varied_param_names can be.
 # A bit cumbersome, but a way to match the names we get out of the file
@@ -215,7 +215,7 @@ nameslist = [
     'M_min', 'a_min', 'evolve_time', 'tau', 
     'num_points_considered_in_cost_function',
     'M_maj', 'a_maj', 'init_guess_offset', 
-    'p_unc', 'v_unc'
+    'p_unc', 'v_unc', 'negative_mass_penalty'
     ]
 
 def get_orbital_period(M, a):
