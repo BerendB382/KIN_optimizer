@@ -10,7 +10,7 @@
     "accuracy": 1e-15,
     "n_samples": 100,
     "init_guess_offset": 1e-5,
-    "learning_rate": 0.02,
+    "learning_rate": 0.002,
     "unknown_dimension": 3,
     "phaseseed": 0,
     "optimizer_type": "ADAM",

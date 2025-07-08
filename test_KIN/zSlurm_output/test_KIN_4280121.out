@@ -1,0 +1,11 @@
+#### Starting test
+2025-07-04 02:59:06.131262: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-07-04 02:59:07.331500: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-04 02:59:22.756378: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Running /home/s2818760/MasterProj/KIN_optimizer/test_KIN/test_KIN.py as __main__
+running the compute derivs file
+running the backwards.py file
+running training loops file
+[node032:1598368] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+#### Finished Test. Have a nice day

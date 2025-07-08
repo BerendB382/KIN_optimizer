@@ -1,0 +1,68 @@
+#### Starting test
+2025-07-04 10:34:24.099214: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-07-04 10:34:24.495296: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-04 10:34:27.111355: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Traceback (most recent call last):
+  File "/home/s2818760/MasterProj/KIN_optimizer/Validation/validation.py", line 457, in <module>
+    test_many_systems(**params)
+  File "/home/s2818760/MasterProj/KIN_optimizer/Validation/validation.py", line 408, in test_many_systems
+    param_sample = get_latin_sample(n_samples, p_var_bounds[0], p_var_bounds[1], hypercube_state, loglog)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s2818760/MasterProj/KIN_optimizer/Validation/validation_funcs.py", line 86, in get_latin_sample
+    from scipy.stats import qmc   
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/scipy/stats/__init__.py", line 624, in <module>
+    from ._stats_py import *
+  File "/home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/scipy/stats/_stats_py.py", line 41, in <module>
+    from scipy.optimize import milp, LinearConstraint
+  File "/home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/scipy/optimize/__init__.py", line 435, in <module>
+    from ._linprog import linprog, linprog_verbose_callback
+  File "/home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/scipy/optimize/_linprog.py", line 21, in <module>
+    from ._linprog_highs import _linprog_highs
+  File "/home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/scipy/optimize/_linprog_highs.py", line 20, in <module>
+    from ._highspy._highs_wrapper import _highs_wrapper
+  File "/home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/scipy/optimize/_highspy/_highs_wrapper.py", line 4, in <module>
+    import scipy.optimize._highspy._core as _h # type: ignore[import-not-found]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ImportError: /cm/local/apps/gcc/11.2.0/lib64/libstdc++.so.6: version `GLIBCXX_3.4.30' not found (required by /home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/scipy/optimize/_highspy/_core.cpython-312-x86_64-linux-gnu.so)
+Processing results...
+All files merged into /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4280332/150_systems_M_min_a_min_4280332.h5
+
+Run parameters:
+   M_maj: 0.001
+   M_min: [  1.00000000e-09   1.00000000e+00]
+   a_maj: 10
+   a_min: [  1 200]
+   accuracy: 1e-15
+   epochs: 650
+   evolve_time: 1200
+   hypercube_state: 42
+   init_guess_offset: 1e-05
+   learning_rate: 0.02
+   loglog: True
+   n_samples: 150
+   num_points_considered_in_cost_function: 8
+   phaseseed: 0
+   tau: 1
+   unknown_dimension: 3
+   varied_param_names: ['M_min' 'a_min']
+
+
+Traceback (most recent call last):
+  File "/home/s2818760/MasterProj/KIN_optimizer/Validation/process_results.py", line 44, in <module>
+    process_result(output_path, output_file.name, log_error=True, filter_outliers=False, loglog=True)
+  File "/home/s2818760/MasterProj/KIN_optimizer/Validation/validation_funcs.py", line 517, in process_result
+    results, run_params = load_result(path, filename, filter_outliers=filter_outliers)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s2818760/MasterProj/KIN_optimizer/Validation/validation_funcs.py", line 172, in load_result
+    maxlength = np.max(np.array([len(i) for i in avg_loss_per_epoch_list]))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/numpy/core/fromnumeric.py", line 2810, in max
+    return _wrapreduction(a, np.maximum, 'max', axis, None, out,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s2818760/.conda/envs/nbody/lib/python3.12/site-packages/numpy/core/fromnumeric.py", line 88, in _wrapreduction
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-size array to reduction operation maximum which has no identity
+#### Finished Test. Have a nice day

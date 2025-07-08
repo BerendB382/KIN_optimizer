@@ -1,0 +1,268 @@
+#### Starting test
+2025-07-04 10:35:23.728506: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-07-04 10:35:23.761113: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-04 10:35:25.613703: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+n_cores available for slurm is 16
+starting pools
+finding masses for system 15
+finding masses for system 14
+finding masses for system 0
+finding masses for system 10
+finding masses for system 11
+finding masses for system 3
+finding masses for system 5
+finding masses for system 7
+finding masses for system 9
+finding masses for system 4
+finding masses for system 8
+finding masses for system 13
+finding masses for system 12
+finding masses for system 1
+finding masses for system 6
+finding masses for system 2
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+[node031:3805027] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805017] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805012] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805024] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805026] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805014] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805018] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805015] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805020] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805021] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805022] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805023] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805016] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805019] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805025] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3805013] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+finding masses for system 17
+running the compute derivs file
+running the backwards.py file
+running training loops file
+finding masses for system 16
+finding masses for system 19
+running the compute derivs file
+running the backwards.py file
+running training loops file
+finding masses for system 18
+running the compute derivs file
+running the backwards.py file
+running training loops file
+running the compute derivs file
+running the backwards.py file
+running training loops file
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Open MPI failed an OFI Libfabric library call (fi_endpoint).  This is highly
+unusual; your job may behave unpredictably (and/or abort) after this.
+
+  Local host: node031
+  Location: mtl_ofi_component.c:515
+  Error: No data available (61)
+--------------------------------------------------------------------------
+[node031:3806234] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3806233] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3806252] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+[node031:3806235] mtl_ofi_endpoint.h:49: *** The Open MPI OFI MTL is aborting the MPI job (via exit(3)).
+slurmstepd: error: *** JOB 4280334 ON node031 CANCELLED AT 2025-07-04T10:43:44 ***

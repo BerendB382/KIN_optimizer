@@ -1,0 +1,256 @@
+#### Starting test
+2025-07-04 11:04:26.363138: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+n_cores available for slurm is 16
+starting pools
+finding masses for system 12
+finding masses for system 14
+finding masses for system 2
+finding masses for system 3
+finding masses for system 0
+finding masses for system 1
+finding masses for system 4
+finding masses for system 7
+finding masses for system 9
+finding masses for system 15
+finding masses for system 8
+finding masses for system 13
+finding masses for system 6
+finding masses for system 10
+finding masses for system 11
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+running the compute derivs file
+finding masses for system 5
+running the compute derivs file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running the backwards.py file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running the compute derivs file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running training loops file
+running the backwards.py file
+running training loops file
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+starting learn_masses_4real
+saved results for system 15
+finding masses for system 16
+starting learn_masses_4real
+saved results for system 1
+finding masses for system 17
+starting learn_masses_4real
+saved results for system 8
+finding masses for system 18
+starting learn_masses_4real
+saved results for system 5
+finding masses for system 19
+starting learn_masses_4real
+saved results for system 4
+saved results for system 2
+saved results for system 0
+saved results for system 12
+saved results for system 3
+saved results for system 7
+saved results for system 14
+saved results for system 13
+saved results for system 10
+saved results for system 9
+saved results for system 11
+saved results for system 6
+saved results for system 16
+saved results for system 17
+saved results for system 18
+saved results for system 19
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+Running simulation...
+[  0 150 300 450 600]
+start the learn masses function
+len varied param names is 1
+
+
+In this session you have used the AMUSE modules below. 
+Please cite any relevant articles:
+
+
+	"AMUSE (unknown version)"
+		DOI:10.5281/zenodo.1435860
+		ADS:2018araa.book.....P (Portegies Zwart, S. & McMillan, S.L.W., 2018)
+		ADS:2013CoPhC.183..456P ** (Portegies Zwart, S. et al., 2013)
+		ADS:2013A&A...557A..84P ** (Pelupessy, F. I. et al., 2013)
+		ADS:2009NewA...14..369P (Portegies Zwart, S. et al., 2009)
+
+All files merged into /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/20_systems_init_guess_offset_4281684.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/0_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/10_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/11_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/12_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/13_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/14_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/15_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/16_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/17_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/18_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/19_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/1_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/2_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/3_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/4_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/5_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/6_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/7_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/8_of_020_systems.h5
+Deleted file: /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/mp_results/9_of_020_systems.h5
+
+Run parameters:
+   M_maj: 0.001
+   M_min: 0.0001
+   a_maj: 10
+   a_min: 50
+   accuracy: 1e-10
+   epochs: 1000
+   evolve_time: 600
+   hypercube_state: 42
+   init_guess_offset: [  1.00000000e-05   1.00000000e+01]
+   learning_rate: 0.0002
+   loglog: True
+   n_samples: 20
+   num_points_considered_in_cost_function: 4
+   phaseseed: 0
+   tau: 1
+   unknown_dimension: 3
+   varied_param_names: ['init_guess_offset']
+
+
+Run parameters saved to /home/s2818760/MasterProj/KIN_optimizer/Validation/val_results/4281684/20_systems_init_guess_offset_4281684.h5.json
+file 20_systems_init_guess_offset_4281684.h5 processed
+
+
+In this session you have used the AMUSE modules below. 
+Please cite any relevant articles:
+
+
+	"AMUSE (unknown version)"
+		DOI:10.5281/zenodo.1435860
+		ADS:2018araa.book.....P (Portegies Zwart, S. & McMillan, S.L.W., 2018)
+		ADS:2013CoPhC.183..456P ** (Portegies Zwart, S. et al., 2013)
+		ADS:2013A&A...557A..84P ** (Pelupessy, F. I. et al., 2013)
+		ADS:2009NewA...14..369P (Portegies Zwart, S. et al., 2009)
+
+#### Finished Test. Have a nice day
