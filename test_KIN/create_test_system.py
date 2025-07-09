@@ -86,10 +86,26 @@ def generate_your_system():
 #     sys_type = '3_bodies'
 #     return create_test_system(M_maj, M_min, a_maj, a_min, phaseseed), sys_type
 
-# def generate_your_system(): # MANY BODIES VERSION
-#     # TODO: where you have lots of bodies bla bla bla. 
-#     sys_type = 'many_bodies'
-#     return sys, sys_type
+def generate_your_system(): # MANY BODIES VERSION
+    num_bodies = 4
+    masses = [1e-3, 1e-5, 1e-5, 1e-6, 1e-6, 1e-7, 1e-7, 1e-8]
+    sma = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+    phaseseed = int(phaseseed)
+    r1 = np.random.default_rng(phaseseed)
+
+    sys = Particles()
+    star = create_test_star(M=masses[0])
+    sys.add_particle(star)
+    sys.phaseseed = phaseseed # add phaseseed to the system to identify it
+
+    for i in range(len(masses)):
+        planet = create_test_planet(sys, masses[i], sma[i], name=f'body {i}', phase = r1.uniform(0, 2 * np.pi))
+        sys.add_particle(planet)
+
+    sys_type = f'{num_bodies}_bodies'
+    sys.move_to_center()
+    return sys, sys_type
 
 def generate_your_system(): # TRAPPIST VERSION
     from Trappist.generate_trappist import create_trappist_system
